@@ -1,0 +1,6 @@
+pnpm env:encrypt
+git add .env
+pnpm format
+pnpm lint
+tsc
+pnpm build

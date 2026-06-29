@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "dotenvx": {
+      "source": "motdotla/dotenv",
+      "sourceType": "github",
+      "skillPath": "skills/dotenvx/SKILL.md",
+      "computedHash": "851072ff03649019eeadb9780b87eacdc3e0b39b8407105354144f692ebc699b"
+    }
+  }
+}
