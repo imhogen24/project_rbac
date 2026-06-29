@@ -14,8 +14,8 @@ How the PROJECT_RBAC team works. Start here.
 | Resource | Link |
 |----------|------|
 | GitHub repo | [https://github.com/imhogen24/PROJECT_RBAC](https://github.com/imhogen24/PROJECT_RBAC) |
-| Linear project | [https://linear.app/rdpi-erm/project/project-rbac-70d3e72995b7/overview]|
-| Google Chat |[https://chat.google.com/app/chat/AAQA6HTFyCk] |
+| Linear project | [https://linear.app/rdpi-erm/project/project-rbac-70d3e72995b7/overview](https://linear.app/rdpi-erm/project/project-rbac-70d3e72995b7/overview)|
+| Google Chat |[https://chat.google.com/app/chat/AAQA6HTFyCk](https://linear.app/rdpi-erm/project/project-rbac-70d3e72995b7/overview) |
 
 ---
 
