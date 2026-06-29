@@ -23,7 +23,6 @@ Read in this exact order before any implementation:
 - Zod validates all external input before any action or handler proceeds
 - Every authenticated mutation calls `requireRole()` before touching the database
 - No hardcoded colors — only Tailwind design-system tokens
-- `pnpm build` must pass before opening a PR
 
 ## File Naming
 
