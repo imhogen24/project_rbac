@@ -4,7 +4,7 @@ This is the sandbox repository for the IMHOGEN dev team onboarding exercise.
 Build a working RBAC system using the same stack and operating procedures as the ERM platform.
 
 The goal is to practice the team SOP end-to-end: picking up a Linear issue, branching,
-building to standard, opening a PR, getting it reviewed, and merging — before touching ERM.
+building to standard, opening a PR, getting it reviewed, and merging before touching ERM.
 
 ---
 
@@ -33,12 +33,12 @@ pnpm install
 Set up your environment:
 
 ```bash
-cp .env.example .env
-# Fill in your values, then encrypt:
-pnpm dotenvx encrypt
-```
 
-The encrypted `.env` is safe to commit. Your decryption key is in `.env.keys` — never commit that file.
+1. Obtain the `.env.keys` file from the project maintainers.
+2. Place the `.env.keys` file in the root directory of the project.
+3. Run the following command to view content of .env:
+ pnpm env:decrypt
+```
 
 Run the app:
 
@@ -46,7 +46,6 @@ Run the app:
 pnpm dev
 ```
 
-> **First user to sign up becomes the admin.** There is no pre-created admin account.
 
 ---
 
