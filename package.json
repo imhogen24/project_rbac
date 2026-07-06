@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenvx run -- next dev",
-    "build": "dotenvx run -- next build",
-    "start": "dotenvx run -- next start",
+    "dev": "NODE_ENV=development dotenvx run --convention nextjs -- next dev",
+    "build": "NODE_ENV=production dotenvx run --convention nextjs -- next build",
+    "start": "NODE_ENV=production dotenvx run --convention nextjs -- next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "env:encrypt": "dotenvx encrypt",
-    "env:decrypt": "dotenvx decrypt",
+    "env:encrypt": "dotenvx encrypt -f .env.development -f .env.production",
+    "env:decrypt": "dotenvx decrypt -f .env.development -f .env.production",
     "prepare": "husky"
   },
   "dependencies": {
