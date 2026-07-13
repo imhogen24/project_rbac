@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "PROJECT_RBAC — IMHOGEN Sandbox",
-  description: "IMHOGEN team onboarding exercise. Build a working RBAC system using the ERM platform stack.",
+  description:
+    "IMHOGEN team onboarding exercise. Build a working RBAC system using the ERM platform stack.",
 };
 
 export default function RootLayout({
