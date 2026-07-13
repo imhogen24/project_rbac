@@ -2,6 +2,7 @@
   "name": "project_rbac",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "NODE_ENV=development dotenvx run --convention nextjs -- next dev",
     "build": "NODE_ENV=production dotenvx run --convention nextjs -- next build",
