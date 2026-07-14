@@ -18,7 +18,7 @@ const issues = [
   {
     number: 3,
     title: "Auth config and guard helper",
-    assignee: "Emmanuel Narh",
+    assignee: "Cyril Baah",
     status: "open" as const,
     dependsOn: [2],
   },
@@ -93,7 +93,6 @@ export default function Home() {
             width={100}
             height={20}
             priority
-            className="dark:invert"
           />
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-3">

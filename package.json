@@ -2,6 +2,7 @@
   "name": "project_rbac",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "cross-env NODE_ENV=development dotenvx run --convention nextjs -- next dev",
     "build": "cross-env NODE_ENV=production dotenvx run --convention nextjs -- next build",
@@ -17,13 +18,15 @@
     "seed": "dotenvx run -f .env.development -- tsx src/scripts/seed-admin.ts"
   },
   "dependencies": {
+    "@better-auth/drizzle-adapter": "^1.6.23",
     "@dotenvx/dotenvx": "^1.75.1",
     "@neondatabase/serverless": "^1.1.0",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "next": "16.2.9",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -35,7 +38,8 @@
     "drizzle-kit": "^0.31.10",
     "husky": "^9.1.7",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.3"
   },
   "ignoreScripts": [
     "sharp",
