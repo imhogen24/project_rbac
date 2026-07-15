@@ -35,7 +35,12 @@ export default function SignInForm({
         </label>
         <input
           id="email"
+          name="email"
           type="email"
+          autoComplete="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          inputMode="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
