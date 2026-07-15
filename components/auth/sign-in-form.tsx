@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 type SignInFormProps = {
   onSubmit: (email: string, password: string) => Promise<void>;
@@ -16,7 +16,7 @@ export default function SignInForm({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!email || !password) return;
     await onSubmit(email, password);
