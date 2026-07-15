@@ -56,7 +56,9 @@ export default function SignInForm({
         </label>
         <input
           id="password"
+          name="password"
           type="password"
+          autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
