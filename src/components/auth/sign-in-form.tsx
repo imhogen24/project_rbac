@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
 
 type SignInFormProps = {
   onSubmit: (email: string, password: string) => Promise<void>;
@@ -8,7 +8,7 @@ type SignInFormProps = {
   isLoading?: boolean;
 };
 
-export default function SignInForm({
+export function SignInForm({
   onSubmit,
   error,
   isLoading = false,
@@ -16,7 +16,7 @@ export default function SignInForm({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email || !password) return;
     await onSubmit(email, password);
@@ -35,12 +35,7 @@ export default function SignInForm({
         </label>
         <input
           id="email"
-          name="email"
           type="email"
-          autoComplete="email"
-          autoCapitalize="none"
-          autoCorrect="off"
-          inputMode="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -56,9 +51,7 @@ export default function SignInForm({
         </label>
         <input
           id="password"
-          name="password"
           type="password"
-          autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -68,9 +61,7 @@ export default function SignInForm({
         />
       </div>
 
-      {error && (
-        <p className="text-sm text-destructive">{error}</p>
-      )}
+      {error && <p className="text-sm text-destructive">{error}</p>}
 
       <button
         type="submit"

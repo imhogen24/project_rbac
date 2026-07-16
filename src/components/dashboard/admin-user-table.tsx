@@ -17,7 +17,7 @@ function roleBadgeClass(role: Role) {
     : "bg-muted text-muted-foreground";
 }
 
-export default function AdminUserTable({ users }: AdminUserTableProps) {
+export function AdminUserTable({ users }: AdminUserTableProps) {
   return (
     <div className="overflow-hidden rounded-lg border border-border">
       <table className="w-full text-sm">
@@ -41,9 +41,7 @@ export default function AdminUserTable({ users }: AdminUserTableProps) {
               <td className="px-4 py-3 text-muted-foreground">{user.email}</td>
               <td className="px-4 py-3">
                 <span
-                  className={
-                    `inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${roleBadgeClass(user.role)}`
-                  }
+                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${roleBadgeClass(user.role)}`}
                 >
                   {user.role === "admin" ? "Admin" : "Engineer"}
                 </span>
