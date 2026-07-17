@@ -50,8 +50,9 @@ actions/          Server Actions for authenticated UI mutations
 better-auth manages sessions via HTTP-only cookies. On sign-in, the user's `role` field
 is read from the `users` table and embedded in the session.
 
-**The first user to sign up is automatically assigned the `admin` role.**
-All subsequent sign-ups receive the `engineer` role by default.
+
+The default role for all new sign-ups is `engineer`.
+The  `admin` role is not assigned automatically. Instead, it must be explicitly set in the database by an existing admin. Once a user has the `admin` role, they can promote other users (including engineers) to admin via the /api/users endpoint. This ensures role elevation is always a deliberate, auditable action performed by an authorized admin.
 
 **Role enum:**
 
