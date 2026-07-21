@@ -21,6 +21,7 @@
     "@better-auth/drizzle-adapter": "^1.6.23",
     "@dotenvx/dotenvx": "^1.75.1",
     "@neondatabase/serverless": "^1.1.0",
+    "better-auth": "^1.6.23",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
