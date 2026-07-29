@@ -8,6 +8,13 @@
       "when": 1784026087510,
       "tag": "0000_daily_sheva_callister",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785271548998,
+      "tag": "0001_wise_mother_askani",
+      "breakpoints": true
     }
   ]
 }
