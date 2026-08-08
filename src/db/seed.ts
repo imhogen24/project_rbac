@@ -41,7 +41,7 @@ async function seed() {
 
   console.log("✅ Test user seeded successfully!");
   console.log(`Email: ${testEmail}`);
-  console.log(`Password: ${testPassword}`);
+  console.log("Password: (hidden)");
   process.exit(0);
 }
 
