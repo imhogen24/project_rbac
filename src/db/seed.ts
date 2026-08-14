@@ -4,10 +4,13 @@ dotenv.config({ path: ".env.development" });
 
 import { eq } from "drizzle-orm";
 import * as schema from "@/db/schema";
-import { auth } from "@/lib/auth";
-import { db } from "@/lib/db";
 
 async function seed() {
+  const [{ auth }, { db }] = await Promise.all([
+    import("@/lib/auth"),
+    import("@/lib/db"),
+  ]);
+
   // ... rest of seed code
   const testEmail = "you@example.com"; // Replace with your desired email
   const testPassword = "Password123!"; // Replace with your desired password
