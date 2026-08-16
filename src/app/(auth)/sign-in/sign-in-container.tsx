@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { authClient } from "@/components/auth/sign-in-client";
 import { SignInForm } from "@/components/auth/sign-in-form";
-import { authClient } from "@/components/auth/client";
 
 export function SignInContainer() {
   const router = useRouter();
@@ -31,10 +31,6 @@ export function SignInContainer() {
   }
 
   return (
-    <SignInForm
-      onSubmit={handleSignIn}
-      error={error}
-      isLoading={isLoading}
-    />
+    <SignInForm onSubmit={handleSignIn} error={error} isLoading={isLoading} />
   );
 }

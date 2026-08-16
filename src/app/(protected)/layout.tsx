@@ -1,7 +1,9 @@
-// src/app/dashboard/layout.tsx
-import { auth } from "@/lib/auth";
+// src/app/(protected)/layout.tsx
+
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { RoleBanner } from "@/components/dashboard/role-banner";
+import { auth } from "@/lib/auth";
 
 // Define the signOut Server Action directly inside the file
 async function signOutAction() {
@@ -12,7 +14,7 @@ async function signOutAction() {
   redirect("/sign-in");
 }
 
-export default async function DashboardLayout({
+export default async function ProtectedLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -37,7 +39,9 @@ export default async function DashboardLayout({
             <span className="text-sm text-muted-foreground">
               {session.user.email}
             </span>
-            
+
+            <RoleBanner role={session.user.role as "admin" | "engineer"} />
+
             <form action={signOutAction}>
               <button
                 type="submit"
@@ -50,9 +54,7 @@ export default async function DashboardLayout({
         </div>
       </header>
 
-      <main className="flex-1 mx-auto w-full max-w-7xl p-6">
-        {children}
-      </main>
+      <main className="flex-1 mx-auto w-full max-w-7xl p-6">{children}</main>
     </div>
   );
 }

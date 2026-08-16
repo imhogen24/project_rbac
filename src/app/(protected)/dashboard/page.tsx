@@ -1,19 +1,13 @@
-// src/app/dashboard/page.tsx
-import { auth } from "@/lib/auth";
+// src/app/(protected)/dashboard/page.tsx
+
 import { headers } from "next/headers";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { RoleBanner } from "@/components/dashboard/role-banner";
-import { AdminUserTable } from "@/components/dashboard/admin-user-table";
+import { Button } from "@/components/ui/button";
+import { type Role, users as usersTable } from "@/db/schema";
+import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { users as usersTable, type Role } from "@/db/schema";
-
-// Type matching AdminUserTable's required prop shape
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  role: Role;
-};
 
 export default async function DashboardPage() {
   const session = await auth.api.getSession({
@@ -26,18 +20,11 @@ export default async function DashboardPage() {
 
   const userRole = (session.user.role as Role) || "engineer";
 
-  // Explicitly type the array so TypeScript doesn't infer 'any[]'
-  let usersList: User[] = [];
+  let userCount = 0;
 
   if (userRole === "admin") {
-    // Fetch users from database using Drizzle
-    const dbUsers = await db.select().from(usersTable);
-    usersList = dbUsers.map((u) => ({
-      id: u.id,
-      name: u.name ?? "",
-      email: u.email,
-      role: u.role as Role,
-    }));
+    const dbUsers = await db.select({ id: usersTable.id }).from(usersTable);
+    userCount = dbUsers.length;
   }
 
   return (
@@ -49,13 +36,16 @@ export default async function DashboardPage() {
           <div className="flex flex-col gap-4">
             <div>
               <h2 className="text-lg font-semibold text-card-foreground">
-                System Users Overview
+                Admin Overview
               </h2>
               <p className="text-sm text-muted-foreground">
-                Manage accounts and roles across the organization.
+                {userCount} total {userCount === 1 ? "user" : "users"} in the
+                system.
               </p>
             </div>
-            <AdminUserTable users={usersList} />
+            <Link href="/admin">
+              <Button>Go to Admin Panel</Button>
+            </Link>
           </div>
         ) : (
           <div className="flex flex-col gap-2">
@@ -63,7 +53,7 @@ export default async function DashboardPage() {
               Engineer Workspace
             </h2>
             <p className="text-sm text-muted-foreground">
-              Welcome back. Access your active workspace and projects here.
+              You are in your assigned workspace.
             </p>
           </div>
         )}
