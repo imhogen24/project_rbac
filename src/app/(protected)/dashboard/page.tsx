@@ -1,15 +1,11 @@
-<<<<<<< HEAD:src/app/dashboard/page.tsx
-// src/app/dashboard/page.tsx
-=======
 // src/app/(protected)/dashboard/page.tsx
->>>>>>> origin/main:src/app/(protected)/dashboard/page.tsx
 
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-<<<<<<< HEAD:src/app/dashboard/page.tsx
 import { AdminUserTable } from "@/components/dashboard/admin-user-table";
 import { RoleBanner } from "@/components/dashboard/role-banner";
+import { Button } from "@/components/ui/button";
 import { type Role, users as usersTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -21,13 +17,6 @@ type User = {
   email: string;
   role: Role;
 };
-=======
-import { RoleBanner } from "@/components/dashboard/role-banner";
-import { Button } from "@/components/ui/button";
-import { type Role, users as usersTable } from "@/db/schema";
-import { auth } from "@/lib/auth";
-import { db } from "@/lib/db";
->>>>>>> origin/main:src/app/(protected)/dashboard/page.tsx
 
 export default async function DashboardPage() {
   const session = await auth.api.getSession({
