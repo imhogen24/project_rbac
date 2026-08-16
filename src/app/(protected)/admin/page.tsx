@@ -37,7 +37,7 @@ export default async function AdminPage() {
             Admin Panel
           </h2>
           <p className="text-sm text-muted-foreground">
-            Manage users and roles in the system
+            Manage users and roles in the system.
           </p>
         </div>
 
