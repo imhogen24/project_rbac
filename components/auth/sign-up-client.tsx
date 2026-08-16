@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { authClient } from "../../src/components/auth/client";
+import { authClient } from "./client";
 import { SignUpForm } from "./sign-up-form";
 
 export function SignUpClientWrapper() {
