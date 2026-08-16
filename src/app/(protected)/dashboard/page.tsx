@@ -3,11 +3,20 @@
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { AdminUserTable } from "@/components/dashboard/admin-user-table";
 import { RoleBanner } from "@/components/dashboard/role-banner";
 import { Button } from "@/components/ui/button";
 import { type Role, users as usersTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
+
+// Type matching AdminUserTable's required prop shape
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: Role;
+};
 
 export default async function DashboardPage() {
   const session = await auth.api.getSession({
