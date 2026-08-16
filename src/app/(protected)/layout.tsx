@@ -1,15 +1,8 @@
-<<<<<<< HEAD:src/app/dashboard/layout.tsx
-// src/app/dashboard/layout.tsx
-
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
-=======
 // src/app/(protected)/layout.tsx
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { RoleBanner } from "@/components/dashboard/role-banner";
->>>>>>> origin/main:src/app/(protected)/layout.tsx
 import { auth } from "@/lib/auth";
 
 // Define the signOut Server Action directly inside the file
@@ -47,11 +40,8 @@ export default async function ProtectedLayout({
               {session.user.email}
             </span>
 
-<<<<<<< HEAD:src/app/dashboard/layout.tsx
-=======
             <RoleBanner role={session.user.role as "admin" | "engineer"} />
 
->>>>>>> origin/main:src/app/(protected)/layout.tsx
             <form action={signOutAction}>
               <button
                 type="submit"
