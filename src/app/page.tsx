@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const issues = [
   {
@@ -12,63 +13,63 @@ const issues = [
     number: 2,
     title: "Database schema",
     assignee: "Emmanuel Narh",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [1],
   },
   {
     number: 3,
     title: "Auth config and guard helper",
-    assignee: "Cyril Baah",
-    status: "open" as const,
+    assignee: "Emmanuel Aweh",
+    status: "done" as const,
     dependsOn: [2],
   },
   {
     number: 4,
     title: "Auth proxy (middleware)",
     assignee: "Emmanuel Aweh",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [3],
   },
   {
     number: 5,
     title: "Protected API routes",
     assignee: "Emmanuel Aweh",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [3, 4],
   },
   {
     number: 6,
     title: "CI pipeline",
     assignee: "Enoch Sitsofe Nkrumah",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [3],
   },
   {
     number: 7,
     title: "Design system",
     assignee: "Christopher Lartey Mensah",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [1],
   },
   {
     number: 8,
     title: "Sign-in and sign-out pages",
     assignee: "Leigh Angelyn",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [3, 7],
   },
   {
     number: 9,
     title: "Dashboard and role-based UI",
     assignee: "Leigh Angelyn",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [4, 7, 8],
   },
   {
     number: 10,
     title: "Admin panel",
     assignee: "Christopher Lartey Mensah",
-    status: "open" as const,
+    status: "done" as const,
     dependsOn: [9],
   },
 ];
@@ -85,6 +86,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 font-sans">
       <main className="mx-auto max-w-3xl px-6 py-16 flex flex-col gap-14">
+        <div className="flex justify-end">
+          <Link
+            href="/sign-in"
+            className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+          >
+            Sign In →
+          </Link>
+        </div>
+
         {/* Header */}
         <div className="flex flex-col gap-6">
           <Image
