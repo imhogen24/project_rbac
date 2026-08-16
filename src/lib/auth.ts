@@ -1,5 +1,3 @@
-// src/lib/auth.ts
-
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { betterAuth } from "better-auth";
 import { accounts, sessions, users, verifications } from "@/db/schema";

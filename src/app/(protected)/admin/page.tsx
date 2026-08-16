@@ -1,8 +1,5 @@
-// src/app/(protected)/admin/page.tsx
-
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { CreateUserForm } from "@/components/admin/create-user-form";
 import { AdminUserTable } from "@/components/dashboard/admin-user-table";
 import { users } from "@/db/schema";
 import { auth } from "@/lib/auth";
@@ -49,16 +46,6 @@ export default async function AdminPage() {
             </h3>
           </div>
           <AdminUserTable users={usersList} />
-        </div>
-
-        {/* Create User Form Section */}
-        <div className="flex flex-col gap-4">
-          <div>
-            <h3 className="text-md font-semibold text-card-foreground">
-              Create New User
-            </h3>
-          </div>
-          <CreateUserForm />
         </div>
       </div>
     </div>

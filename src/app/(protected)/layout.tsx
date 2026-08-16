@@ -1,5 +1,3 @@
-// src/app/(protected)/layout.tsx
-
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { RoleBanner } from "@/components/dashboard/role-banner";
