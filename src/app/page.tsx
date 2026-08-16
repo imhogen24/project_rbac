@@ -1,5 +1,8 @@
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
 
 const issues = [
   {
@@ -82,7 +85,15 @@ const readOrder = [
   { label: "docs/team/WORKING_A_TASK.md", path: "docs/team/WORKING_A_TASK.md" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (session) {
+    redirect("/dashboard");
+  }
+
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 font-sans">
       <main className="mx-auto max-w-3xl px-6 py-16 flex flex-col gap-14">

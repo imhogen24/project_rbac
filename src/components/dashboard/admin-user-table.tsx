@@ -1,3 +1,5 @@
+import { PromoteButton } from "@/components/admin/promote-button";
+
 type Role = "admin" | "engineer";
 
 type User = {
@@ -9,6 +11,7 @@ type User = {
 
 type AdminUserTableProps = {
   users: User[];
+  currentUserId?: string;
 };
 
 function roleBadgeClass(role: Role) {
@@ -17,7 +20,7 @@ function roleBadgeClass(role: Role) {
     : "bg-muted text-muted-foreground";
 }
 
-export function AdminUserTable({ users }: AdminUserTableProps) {
+export function AdminUserTable({ users, currentUserId }: AdminUserTableProps) {
   return (
     <div className="overflow-hidden rounded-lg border border-border">
       <table className="w-full text-sm">
@@ -32,6 +35,9 @@ export function AdminUserTable({ users }: AdminUserTableProps) {
             <th className="px-4 py-3 text-left font-medium text-muted-foreground">
               Role
             </th>
+            <th className="px-4 py-3 text-right font-medium text-muted-foreground">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody className="divide-y divide-border bg-background">
@@ -45,6 +51,13 @@ export function AdminUserTable({ users }: AdminUserTableProps) {
                 >
                   {user.role === "admin" ? "Admin" : "Engineer"}
                 </span>
+              </td>
+              <td className="px-4 py-3 text-right">
+                {user.id === currentUserId ? (
+                  <span className="text-xs text-muted-foreground">(you)</span>
+                ) : (
+                  <PromoteButton userId={user.id} currentRole={user.role} />
+                )}
               </td>
             </tr>
           ))}
