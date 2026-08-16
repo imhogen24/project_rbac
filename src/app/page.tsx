@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const issues = [
   {
@@ -85,6 +86,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 font-sans">
       <main className="mx-auto max-w-3xl px-6 py-16 flex flex-col gap-14">
+        <div className="flex justify-end">
+          <Link
+            href="/sign-in"
+            className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+          >
+            Sign In →
+          </Link>
+        </div>
+
         {/* Header */}
         <div className="flex flex-col gap-6">
           <Image
