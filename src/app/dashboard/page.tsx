@@ -1,11 +1,12 @@
 // src/app/dashboard/page.tsx
-import { auth } from "@/lib/auth";
+
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { RoleBanner } from "@/components/dashboard/role-banner";
 import { AdminUserTable } from "@/components/dashboard/admin-user-table";
+import { RoleBanner } from "@/components/dashboard/role-banner";
+import { type Role, users as usersTable } from "@/db/schema";
+import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { users as usersTable, type Role } from "@/db/schema";
 
 // Type matching AdminUserTable's required prop shape
 type User = {

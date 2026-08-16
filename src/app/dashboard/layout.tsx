@@ -1,7 +1,8 @@
 // src/app/dashboard/layout.tsx
-import { auth } from "@/lib/auth";
+
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
 
 // Define the signOut Server Action directly inside the file
 async function signOutAction() {
@@ -37,7 +38,7 @@ export default async function DashboardLayout({
             <span className="text-sm text-muted-foreground">
               {session.user.email}
             </span>
-            
+
             <form action={signOutAction}>
               <button
                 type="submit"
@@ -50,9 +51,7 @@ export default async function DashboardLayout({
         </div>
       </header>
 
-      <main className="flex-1 mx-auto w-full max-w-7xl p-6">
-        {children}
-      </main>
+      <main className="flex-1 mx-auto w-full max-w-7xl p-6">{children}</main>
     </div>
   );
 }

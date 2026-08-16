@@ -2,6 +2,7 @@
 
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { betterAuth } from "better-auth";
+import { count } from "drizzle-orm";
 import { accounts, sessions, users, verifications } from "@/db/schema";
 import { db } from "@/lib/db";
 
@@ -15,6 +16,23 @@ export const auth = betterAuth({
       verification: verifications,
     },
   }),
+  databaseHooks: {
+    user: {
+      create: {
+        async before(user) {
+          const [row] = await db.select({ count: count() }).from(users);
+          const isFirstUser = Number(row?.count ?? 0) === 0;
+
+          return {
+            data: {
+              ...user,
+              role: isFirstUser ? "admin" : "engineer",
+            },
+          };
+        },
+      },
+    },
+  },
   emailAndPassword: {
     enabled: true,
   },
@@ -23,7 +41,7 @@ export const auth = betterAuth({
       role: {
         type: "string",
         defaultValue: "engineer",
-        input: false, // prevents client from setting their own role on signup
+        input: false,
       },
     },
   },

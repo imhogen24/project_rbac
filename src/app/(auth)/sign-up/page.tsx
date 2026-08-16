@@ -1,9 +1,9 @@
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { SignInContainer } from "./sign-in-container";
+import { auth } from "@/lib/auth";
+import { SignUpClientWrapper } from "../../../../components/auth/sign-up-client";
 
-export default async function SignInPage() {
+export default async function SignUpPage() {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -14,7 +14,7 @@ export default async function SignInPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4 text-foreground">
-      <SignInContainer />
+      <SignUpClientWrapper />
     </div>
   );
 }
